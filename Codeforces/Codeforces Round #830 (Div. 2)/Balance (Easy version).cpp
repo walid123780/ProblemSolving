@@ -31,6 +31,16 @@ void solve()
         {
             mp[k] = true;
         }
+        if(ch == '-')
+        {
+            mp[k] = false;
+            for(int i = 1; i * i <= k ; i++){
+                if(k % i == 0){
+                    mp1[i] = (mp1[i] < k ? mp1[i] : k);
+                    if(i != k / i) mp1[k / i] = (mp1[k / i] < k ? mp1[k / i] : k);
+                }
+            }
+        }
         if(ch == '?')
         {
             j = mp1[k];
